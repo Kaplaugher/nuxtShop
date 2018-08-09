@@ -1,9 +1,9 @@
-const pkg = require("./package");
+const pkg = require('./package');
 
-const nodeExternals = require("webpack-node-externals");
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  mode: "universal",
+  mode: 'spa',
 
   /*
   ** Headers of the page
@@ -11,41 +11,41 @@ module.exports = {
   head: {
     title: pkg.name,
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: pkg.description }
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href:
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-      }
-    ]
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
+      },
+    ],
   },
 
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: "#3B8070" },
+  loading: { color: '#3B8070' },
 
   /*
   ** Global CSS
   */
-  css: ["vuetify/src/stylus/main.styl"],
+  css: ['vuetify/src/stylus/main.styl'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ["@/plugins/vuetify"],
+  plugins: ['@/plugins/vuetify'],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    "@nuxtjs/axios"
+    '@nuxtjs/axios',
   ],
 
   /*
@@ -66,10 +66,10 @@ module.exports = {
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({
-            whitelist: [/^vuetify/]
-          })
+            whitelist: [/^vuetify/],
+          }),
         ];
       }
-    }
-  }
+    },
+  },
 };

@@ -21,7 +21,7 @@
             outline
         ></v-select>
           <div v-for="variant in variants" :key="variant.variantId">
-            {{ variant.variantColor }}
+            <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
           </div>
 
           <v-btn class="mt-4" color="info">Add to Cart</v-btn>
@@ -43,15 +43,24 @@ export default {
       variants: [
         {
           variantId: 2234,
-          variantColor: "green"
+          variantColor: "green",
+          variantImage:
+            "https://res.cloudinary.com/kaptivating-io/image/upload/f_auto/v1533688012/onlineStore/vmSocks-green-onWhite.jpg"
         },
         {
           variantId: 2235,
-          variantColor: "blue"
+          variantColor: "blue",
+          varientImage:
+            "https://res.cloudinary.com/kaptivating-io/image/upload/f_auto/v1533774148/onlineStore/vmSocks-blue-onWhite.jpg"
         }
       ],
       sizes: ["Large", "Medium", "Small", "X-Sm"]
     };
+  },
+  methods: {
+    updateProduct(variantImage) {
+      this.image = variantImage;
+    }
   }
 };
 </script>
@@ -68,7 +77,7 @@ export default {
 }
 
 .img {
-  height: 450px;
+  height: 350px;
 }
 
 .select {
