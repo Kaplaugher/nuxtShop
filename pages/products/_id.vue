@@ -1,11 +1,11 @@
 <template>
-  <v-container grid-list-lg>
-    <v-layout row wrap>
-      <v-flex xs12 sm6 class="product-image">
+  <div class="page-wrapper">
+    <section class="item-section">
+      <div class="image">
         <img :src="image" alt="" class="img">
-      </v-flex>
-      <v-flex xs12 sm6 class="product-info">
-        <h1 class="display-2">{{product}}</h1>
+      </div>
+      <div class="description">
+         <h1 class="display-2">{{product}}</h1>
         <p v-if="inventory > 10" class="subheading">In Stock</p>
         <p v-else-if="inventory > 0 && inventory > 0">Almost Sold Out!</p>
         <p v-else class="subheading">Out of Stock</p>
@@ -15,6 +15,7 @@
         </ul>
 
         <v-select
+            class="select"
             :items="sizes"
             label="Choose A Size"
             outline
@@ -23,9 +24,10 @@
             {{ variant.variantColor }}
           </div>
 
-        </v-flex>
-    </v-layout>
-  </v-container>
+          <v-btn class="mt-4" color="info">Add to Cart</v-btn>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -55,7 +57,21 @@ export default {
 </script>
 
 <style>
+.item-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.image {
+  justify-self: end;
+}
+
 .img {
   height: 450px;
+}
+
+.select {
+  width: 150px;
 }
 </style>
