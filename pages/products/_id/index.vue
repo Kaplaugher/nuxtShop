@@ -20,11 +20,15 @@
             label="Choose A Size"
             outline
         ></v-select>
-          <div v-for="variant in variants" :key="variant.variantId">
-            <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+          <div
+          v-for="variant in variants"
+          :key="variant.variantId"
+          class="color-box"
+          :style="{backgroundColor: variant.variantColor}"
+          @mouseover="updateProduct(variant.variantImage)">
           </div>
 
-          <v-btn class="mt-4" color="info">Add to Cart</v-btn>
+          <v-btn class="mt-4" color="info" :disabled="!inStock">Add to Cart</v-btn>
       </div>
     </section>
   </div>
@@ -82,5 +86,11 @@ export default {
 
 .select {
   width: 150px;
+}
+
+.color-box {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
 }
 </style>
